@@ -15,7 +15,7 @@ public class ConnectToSql {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // URL kết nối MySQL
-            String url = "jdbc:mysql://localhost:3306/library_management";  // Chỉnh sửa để sử dụng MySQL (localhost, cổng 3306, tên cơ sở dữ liệu là library_management)
+            String url = "jdbc:mysql://localhost:3306/ql_thuvien";  // Chỉnh sửa để sử dụng MySQL (localhost, cổng 3306, tên cơ sở dữ liệu là library_management)
 
             // Tài khoản và mật khẩu MySQL
             String user = "root";  // Chỉnh sửa thành tài khoản MySQL của bạn
@@ -37,7 +37,7 @@ public class ConnectToSql {
                 System.out.println("Kết nối thành công!");
 
                 // Truy vấn dữ liệu
-                String query = "SELECT * FROM books";
+                String query = "SELECT * FROM sach";
                 PreparedStatement prepare = connect.con.prepareStatement(query);
 
                 ResultSet result = prepare.executeQuery();
