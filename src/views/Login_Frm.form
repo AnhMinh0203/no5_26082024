@@ -86,7 +86,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng nh&#x1ead;p"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[58, 20]"/>
+          <Dimension value="[58, 10]"/>
         </Property>
       </Properties>
     </Component>

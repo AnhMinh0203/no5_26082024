@@ -4,17 +4,22 @@
  */
 package views;
 
+import controllers.StatisticalReportController;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import models.StatisticalReportModel;
+
 /**
  *
  * @author leanh
  */
 public class Home_Frm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home_Frm
-     */
+    
     public Home_Frm() {
         initComponents();
+        
+        
     }
 
     /**

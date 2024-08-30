@@ -34,7 +34,7 @@ public class Login_Frm extends javax.swing.JFrame {
         lbl_Login.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_Login.setForeground(new java.awt.Color(204, 0, 204));
         lbl_Login.setText("Đăng nhập");
-        lbl_Login.setMaximumSize(new java.awt.Dimension(58, 20));
+        lbl_Login.setMaximumSize(new java.awt.Dimension(58, 10));
 
         tf_pass.setBackground(new java.awt.Color(204, 204, 255));
         tf_pass.setBorder(null);

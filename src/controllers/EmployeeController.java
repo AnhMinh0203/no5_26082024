@@ -2,6 +2,7 @@ package controllers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import models.EmployeeModel;
 
 public class EmployeeController extends ConnectToSql{
     public boolean login(String name_login, String password) {
@@ -43,26 +44,26 @@ public class EmployeeController extends ConnectToSql{
        
         return newId;
     }
-    public boolean signUp(String fullName,String dob,String phoneNumber,String CMND, String nameAccount,String password) {
+    public boolean signUp(EmployeeModel emp,String password) {
         String Ma_NV = getIdEmployee();
         try {
              String query_table_employee = "INSERT INTO nhan_vien (Ma_NV,Ten_NV, Ngay_Sinh, So_DT, Chuc_Vu, CMND,Ten_DN) "
                      + "VALUES (?, ?, ?, ?, ?, ?,?)";      
             PreparedStatement prepare_emp = con.prepareStatement(query_table_employee); 
             prepare_emp.setString(1, Ma_NV);
-            prepare_emp.setString(2, fullName);
-            prepare_emp.setString(3, dob);
-            prepare_emp.setString(4, phoneNumber); 
-            prepare_emp.setString(5, "Thủ thư");
-            prepare_emp.setString(6, CMND);
-            prepare_emp.setString(7, nameAccount);
+            prepare_emp.setString(2, emp.name);
+            prepare_emp.setString(3, emp.dob);
+            prepare_emp.setString(4, emp.phoneNumber); 
+            prepare_emp.setString(5, emp.position);
+            prepare_emp.setString(6, emp.CMND);
+            prepare_emp.setString(7, emp.login_name);
 
             int rowsAffected_emp = prepare_emp.executeUpdate();
            
             String query_table_account = "INSERT INTO tai_khoan (Ten_TK, Mat_Khau, Quyen) "
                      + "VALUES (?, ?, ?)";
             PreparedStatement prepare_account = con.prepareStatement(query_table_account); 
-            prepare_account.setString(1, nameAccount);
+            prepare_account.setString(1, emp.login_name);
             prepare_account.setString(2, password);
             prepare_account.setString(3, "2");
 

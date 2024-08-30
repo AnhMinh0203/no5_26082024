@@ -3,6 +3,7 @@ package views;
 
 import controllers.EmployeeController;
 import javax.swing.JOptionPane;
+import models.EmployeeModel;
 
 public class SignUp_Frm extends javax.swing.JFrame {
     private EmployeeController emp_controller;
@@ -186,7 +187,14 @@ public class SignUp_Frm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mật khẩu không trùng khớp", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            boolean check = emp_controller.signUp(fullName, dob, phoneNumber, CMND,nameAccount,password);
+            EmployeeModel emp = new EmployeeModel();
+            emp.name = fullName;
+            emp.dob = dob;
+            emp.phoneNumber = phoneNumber;
+            emp.CMND = CMND;
+            emp.login_name = nameAccount;
+            emp.position = "Thủ thư";
+            boolean check = emp_controller.signUp(emp,password);
             if(check){
                 JOptionPane.showMessageDialog(this, "Tạo tài khoản thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
             }
