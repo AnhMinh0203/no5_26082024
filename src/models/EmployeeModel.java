@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
-/**
- *
- * @author leanh
- */
 public class EmployeeModel {
     public String idEmployee;
     public String name;
@@ -15,14 +8,16 @@ public class EmployeeModel {
     public String phoneNumber;
     public String position;
     public String CMND;
+    public String login_name;
 
-    public EmployeeModel(String idEmployee, String name, String dob, String phoneNumber, String position, String CMND) {
+    public EmployeeModel(String idEmployee, String name, String dob, String phoneNumber, String position, String CMND,String login_name) {
         this.idEmployee = idEmployee;
         this.name = name;
         this.dob = dob;
         this.phoneNumber = phoneNumber;
         this.position = position;
         this.CMND = CMND;
+        this.login_name = login_name;
     }
 
     public EmployeeModel() {
@@ -74,5 +69,13 @@ public class EmployeeModel {
 
     public void setCMND(String CMND) {
         this.CMND = CMND;
+    }
+    
+    public String getLogin_name() {
+        return login_name;
+    }
+
+    public void setLogin_name(String login_name) {
+        this.login_name = login_name;
     }
 }

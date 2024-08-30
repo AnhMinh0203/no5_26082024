@@ -4,6 +4,9 @@
  */
 package librarymanager;
 
+import views.Login_Frm;
+import views.SignUp_Frm;
+
 /**
  *
  * @author leanh
@@ -14,7 +17,8 @@ public class LibraryManager {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Login_Frm login_Form = new Login_Frm();
+       login_Form.setVisible(true);
     }
     
 }
