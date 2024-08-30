@@ -37,7 +37,7 @@ public class ConnectToSql {
                 System.out.println("Kết nối thành công!");
 
                 // Truy vấn dữ liệu
-                String query = "SELECT * FROM sach";
+                String query = "SELECT * FROM ql_thuvien.doc_gia";
                 PreparedStatement prepare = connect.con.prepareStatement(query);
 
                 ResultSet result = prepare.executeQuery();
