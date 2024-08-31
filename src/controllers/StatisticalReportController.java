@@ -71,6 +71,31 @@ public class StatisticalReportController extends ConnectToSql{
         return null;
     }
     
+    public boolean update_detail_return(StatisticalReportModel reportModel) {
+        String query = "UPDATE chi_tiet_muon_tra SET Ngay_Muon = ?, Ngay_Tra = ?, Thoi_Han = ?, Tinh_Trang_Sach = ?, Soluong = ?, Da_tra = ? " +
+                       "WHERE MaSach = ? AND MaMT = ?";
+        try {
+            PreparedStatement prepare = con.prepareStatement(query);
+
+            prepare.setString(1, reportModel.getBorrowDate());
+            prepare.setString(2, reportModel.getReturnDate());
+            prepare.setString(3, reportModel.getDuaDate()); 
+            prepare.setString(4, reportModel.getBookStatus());
+            prepare.setInt(5, reportModel.getAmount());
+            prepare.setString(6, reportModel.getReturnBook());
+            prepare.setString(7, reportModel.getIdBook());
+            prepare.setString(8, reportModel.getIdLoanReturn());
+
+            int rowsAffected = prepare.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    
     public List<StatisticalReportModel> list_dua_date_books(){
         
         List<StatisticalReportModel> list_detai_return = new ArrayList<>();

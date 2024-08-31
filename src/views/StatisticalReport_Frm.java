@@ -206,7 +206,35 @@ public class StatisticalReport_Frm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_input_searchActionPerformed
 
     private void jButton_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_saveActionPerformed
-        
+         int selectedRow = jTbl_list_return_detail.getSelectedRow();
+
+        if (selectedRow == -1) {
+            // Nếu không có hàng nào được chọn
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn một bản ghi để lưu!", "Thông báo", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Lấy mô hình từ bảng
+        DefaultTableModel model = (DefaultTableModel) jTbl_list_return_detail.getModel();
+
+        String idBook = model.getValueAt(selectedRow, 0).toString(); // Mã sách
+        String idLoanReturn = model.getValueAt(selectedRow, 1).toString(); // Mã mượn trả
+        String borrowDate = model.getValueAt(selectedRow, 2).toString(); // Ngày mượn
+        String dueDate = model.getValueAt(selectedRow, 3).toString(); // Thời hạn
+        String returnDate = model.getValueAt(selectedRow, 4).toString(); // Ngày trả
+        String condition = model.getValueAt(selectedRow, 7).toString(); // Tình trạng
+        int quantity = Integer.parseInt(model.getValueAt(selectedRow, 6).toString()); // Số lượng
+        String bookStatus = model.getValueAt(selectedRow, 5).toString(); // Trạng thái
+ 
+        StatisticalReportModel reportModel = new StatisticalReportModel(idBook, idLoanReturn, borrowDate,returnDate,  bookStatus, condition, quantity, dueDate);
+
+        boolean check = controller_report.update_detail_return(reportModel);
+        if(check){
+            JOptionPane.showMessageDialog(null, "Thông tin đã được lưu thành công!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Cập nhật thông tin thất bại");
+        }
     }//GEN-LAST:event_jButton_saveActionPerformed
 
     private void jButton_due_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_due_dateActionPerformed
