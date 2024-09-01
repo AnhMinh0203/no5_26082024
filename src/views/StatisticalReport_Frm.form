@@ -87,7 +87,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="B&#xe1;o c&#xe1;o th&#x1ed1;ng k&#xea;"/>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; m&#x1b0;&#x1ee3;n tr&#x1ea3;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_export_excel">
@@ -203,6 +203,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tr&#x1edf; l&#x1ea1;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_homeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

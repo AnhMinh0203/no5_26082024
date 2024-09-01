@@ -120,6 +120,11 @@ public class Book_Manager extends javax.swing.JFrame {
                 btn_addMouseClicked(evt);
             }
         });
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
 
         btn_update.setText("Sửa");
         btn_update.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -421,6 +426,10 @@ public class Book_Manager extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_SearchMouseClicked
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_addActionPerformed
 
     /**
      * @param args the command line arguments

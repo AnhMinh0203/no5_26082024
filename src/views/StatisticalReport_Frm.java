@@ -61,7 +61,7 @@ public class StatisticalReport_Frm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Báo cáo thống kê");
+        jLabel1.setText("Quản lý mượn trả");
 
         jButton_export_excel.setText("Xuất Excel");
         jButton_export_excel.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +123,11 @@ public class StatisticalReport_Frm extends javax.swing.JFrame {
         });
 
         jButton_home.setText("Trở lại");
+        jButton_home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_homeActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nhập mã mượn trả");
 
@@ -308,6 +313,12 @@ public class StatisticalReport_Frm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error exporting file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton_export_excelActionPerformed
+
+    private void jButton_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_homeActionPerformed
+        Home_Frm home_frm = new Home_Frm();
+        home_frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton_homeActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
