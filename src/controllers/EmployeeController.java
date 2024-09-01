@@ -76,4 +76,24 @@ public class EmployeeController extends ConnectToSql{
         }
         return false;
     }
+    
+    public String getNameEmployee(String Id){
+        String newId = "";
+        try{
+            String query = "SELECT Ten_NV FROM nhan_vien where Ma_NV = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, Id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                newId = rs.getString("Ten_NV");
+            } else {
+                newId = "";
+            }
+            
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+       
+        return newId;
+    }
 }

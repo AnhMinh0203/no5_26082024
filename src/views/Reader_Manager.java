@@ -55,7 +55,7 @@ public class Reader_Manager extends javax.swing.JFrame {
             });
             i++;
         }
-        Number.setText("Tổng số: "+i);
+        Number.setText("Tổng số: "+listData.size());
     }
 
     /**
@@ -105,6 +105,11 @@ public class Reader_Manager extends javax.swing.JFrame {
         jLabel5.setText("Lớp");
 
         jButton1.setText("Thoát");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btn_add.setText("Thêm");
         btn_add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,7 +298,7 @@ public class Reader_Manager extends javax.swing.JFrame {
                 });
                 i++;
             }
-            Number.setText("Tổng số: "+i);
+            Number.setText("Tổng số: "+listData.size());
             return;
         }
         ReaderModel readerModel = new ReaderModel();
@@ -303,13 +308,19 @@ public class Reader_Manager extends javax.swing.JFrame {
         model.setRowCount(0);
         TableColumnModel columnModel = jTable1.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(4);
-        model.addRow(new Object[] {
-            readerModel.getMa_DG(),
-            readerModel.getTen_DG(),
-            readerModel.getLop(),
-            readerModel.getSo_DT()
-        });
-        Number.setText("Tổng số: 1");
+        if (readerModel.Ma_DG != null)  {
+            model.addRow(new Object[] {
+                readerModel.getMa_DG(),
+                readerModel.getTen_DG(),
+                readerModel.getLop(),
+                readerModel.getSo_DT()
+            });
+            Number.setText("Tổng số: 1");
+        }else {
+            // Xử lý khi không tìm thấy sách với ID
+            Number.setText("Tổng số: 0");
+        }
+        
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void btn_updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updateMouseClicked
@@ -366,6 +377,13 @@ public class Reader_Manager extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btn_deleteMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Home_Frm hf = new Home_Frm();
+        hf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

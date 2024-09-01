@@ -253,49 +253,49 @@ public class BookManagerController extends ConnectToSql {
     }
     
     public String AutoID(String code, String tableName, String idColumn) {
-    int count = 0;
-    String nextID1 = null;
+        int count = 0;
+        String nextID1 = null;
 
-    try {
-        // Thực hiện thủ tục lưu trữ để lấy ID mới nhất
-        CallableStatement cmd = con.prepareCall("{call autoID(?, ?)}");
-        cmd.setString(1, tableName);
-        cmd.setString(2, idColumn);
-        ResultSet rs = cmd.executeQuery();
-        
-        String lastestID = null;
-        if (rs.next()) {
-            lastestID = rs.getString(1);
+        try {
+            // Thực hiện thủ tục lưu trữ để lấy ID mới nhất
+            CallableStatement cmd = con.prepareCall("{call autoID(?, ?)}");
+            cmd.setString(1, tableName);
+            cmd.setString(2, idColumn);
+            ResultSet rs = cmd.executeQuery();
+
+            String lastestID = null;
+            if (rs.next()) {
+                lastestID = rs.getString(1);
+            }
+
+            int nextID = Integer.parseInt(lastestID.substring(2)) + 1;
+            nextID1 = code + String.format("%03d", nextID);
+
+            do {
+                // Thực hiện thủ tục lưu trữ để đếm số lượng ID trùng
+                CallableStatement cmd1 = con.prepareCall("{call count_ID(?, ?, ?)}");
+                cmd1.setString(1, tableName);
+                cmd1.setString(2, idColumn);
+                cmd1.setString(3, nextID1);
+                ResultSet rs1 = cmd1.executeQuery();
+
+                if (rs1.next()) {
+                    count = rs1.getInt(1);
+                }
+
+                // Nếu mã đã được sử dụng, tăng giá trị số thứ tự lên và tạo mã mới
+                if (count > 0) {
+                    nextID++;
+                    nextID1 = code + String.format("%03d", nextID);
+                }
+
+            } while (count > 0);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
-        int nextID = Integer.parseInt(lastestID.substring(2)) + 1;
-        nextID1 = code + String.format("%03d", nextID);
-
-        do {
-            // Thực hiện thủ tục lưu trữ để đếm số lượng ID trùng
-            CallableStatement cmd1 = con.prepareCall("{call count_ID(?, ?, ?)}");
-            cmd1.setString(1, tableName);
-            cmd1.setString(2, idColumn);
-            cmd1.setString(3, nextID1);
-            ResultSet rs1 = cmd1.executeQuery();
-            
-            if (rs1.next()) {
-                count = rs1.getInt(1);
-            }
-
-            // Nếu mã đã được sử dụng, tăng giá trị số thứ tự lên và tạo mã mới
-            if (count > 0) {
-                nextID++;
-                nextID1 = code + String.format("%03d", nextID);
-            }
-
-        } while (count > 0);
-
-    } catch (Exception ex) {
-        ex.printStackTrace();
-    }
     
-    return nextID1;
-}
+        return nextID1;
+    }
 
 }

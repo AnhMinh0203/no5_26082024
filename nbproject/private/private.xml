@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/controllers/ConnectToSql.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/views/StatisticalReport_Frm.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/views/Login_Frm.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/views/Reader_Manager.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/views/Home_Frm.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/views/SignUp_Frm.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/librarymanager/LibraryManager.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/models/EmployeeModel.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/controllers/StatisticalReportController.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/controllers/EmployeeController.java</file>
-            <file>file:/D:/Customers/no5_26082024/Code/LibraryManager/src/models/StatisticalReportModel.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/views/Book_Manager.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/views/Reader_Manager.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/views/StatisticalReport_Frm.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/views/Home_Frm.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/views/Login_Frm.java</file>
+            <file>file:/C:/Users/nguye/OneDrive/Máy%20tính/Project/no5_26082024/src/controllers/ReaderManagerController.java</file>
         </group>
     </open-files>
 </project-private>

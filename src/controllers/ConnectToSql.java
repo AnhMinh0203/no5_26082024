@@ -19,8 +19,7 @@ public class ConnectToSql {
 
             // Tài khoản và mật khẩu MySQL
             String user = "root";  // Chỉnh sửa thành tài khoản MySQL của bạn
-            String pass = "AnhMinh0203@";  // Chỉnh sửa thành mật khẩu MySQL của bạn
-
+            String pass = "Abc@123456789";  // Chỉnh sửa thành mật khẩu MySQL của bạn
             // Kết nối với cơ sở dữ liệu
             con = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException ex) {
